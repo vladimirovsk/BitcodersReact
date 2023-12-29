@@ -2,24 +2,18 @@ FROM node:18.16.0
 
 WORKDIR /app
 
-RUN apt-get update -yqq \
-    && apt-get -yqq install nasm
-
 COPY package.json ./
 COPY package-lock.json ./
 
-RUN npm install
-
-RUN npm install -g create-react-app
-
-RUN npm install react-scripts
-
+RUN npm install --silent
+RUN npm install react-scripts@3.4.1 -g --silent
 
 #ENV NODE_ENV=production
 
-#RUN npm run build
-
 COPY . ./
+
+RUN npm run build
+
 
 EXPOSE 3000
 
