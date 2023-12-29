@@ -33,3 +33,20 @@ jobs:
         run: |
           docker login -u ${{ secrets.DOCKER_USERNAME }} -p ${{ secrets.DOCKER_PASSWORD }}
           docker push vladimirovsk/bitcoders-react:master
+  deploy:
+    needs: [build, test]
+    runs-on:
+      steps:
+        - name: Deploy to server
+          uses: appleboy/ssh-action@master
+          with:
+            host: 65.108.199.29
+            username: svladimirov
+            key: ${{ secrets.SERVER_SECRET}}
+            port: 22
+            script: |
+              cd project/BitCodersReact
+              git pull
+              docker-compose up -d
+              
+              

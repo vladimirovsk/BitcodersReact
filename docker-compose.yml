@@ -2,7 +2,9 @@ version: '3'
 
 services:
   bitcoders-react:
-    build: ./
+    image: vladimirovsk/bitcoders-react:master
+    container_name: bitcoders-react
+    restart: always
     ports:
       - '3000:3000'
     networks:
