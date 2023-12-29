@@ -41,7 +41,7 @@ jobs:
         uses: appleboy/ssh-action@v0.1.4
         with:
           host: 65.108.199.29
-          username: vladimirovsk@gmail.com
+          username: svladimirov
           key: ${{ secrets.SERVER_SECRET }}
           port: 33100
           script: |
