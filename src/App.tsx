@@ -5,9 +5,6 @@ import {FavoritesPage} from './pages/FavoritesPage';
 import Sidebar from './components/Sidebar/Sidebar';
 import Header from './components/Header/Header';
 import {UsersPage} from './pages/UsersPage';
-import {store} from './store';
-import {Provider} from 'react-redux';
-
 
 function App(): JSX.Element {
   return (
