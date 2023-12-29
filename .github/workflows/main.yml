@@ -43,7 +43,7 @@ jobs:
           host: 65.108.199.29
           username: vladimirovsk@gmail.com
           key: ${{ secrets.SERVER_SECRET }}
-          port: 22
+          port: 33100
           script: |
             cd project/BitCodersReact
             git pull
