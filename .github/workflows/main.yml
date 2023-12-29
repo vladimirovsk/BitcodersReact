@@ -20,7 +20,7 @@ jobs:
       - name: Publish to Registry
         uses: docker/build-push-action@v2
         with:
-          context: bitcoders-react
+          context: vladimirovsk/bitcoders-react:master
           push: true
           tags: bitcoders-react
 #      - name: build
