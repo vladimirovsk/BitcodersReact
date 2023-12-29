@@ -42,7 +42,8 @@ jobs:
         with:
           host: 65.108.199.29
           username: svladimirov
-          key: ${{ secrets.SERVER_SECRET }}
+          password: ${{ secrets.SSH_PASSWORD }}
+#          key: ${{ secrets.SERVER_SECRET }}
           port: 33100
           script: |
             cd project/BitCodersReact
