@@ -17,20 +17,9 @@ jobs:
           username: ${{ secrets.DOCKER_USERNAME }}
           password: ${{ secrets.DOCKER_PASSWORD }}
 
-      - name: Publish Regisry
-        uses: minddocdev/docker-publish-action@master
-        with:
-          name: vladimirovsk/bitcoders-react
-          username: ${{ secrets.DOCKER_USERNAME }}
-          password: ${{ secrets.DOCKER_PASSWORD }}
-          extratags: master
-
-
-
-
-#      - name: build
-#        run: docker build . -t vladimirovsk/bitcoders-react:master
-#      - name: publish
-#        run: |
-#          docker login -u vladimirovsk -p ${{ secrets.DOCKER_PASSWORD }}
-#          docker push vladimirovsk/bitcoders-react:master
+      - name: Build docker
+        run: docker build . -t vladimirovsk/bitcoders-react:master
+      - name: Publish to Docker
+        run: |
+          docker login -u ${{ secrets.DOCKER_USERNAME }} -p ${{ secrets.DOCKER_PASSWORD }}
+          docker push vladimirovsk/bitcoders-react:master
