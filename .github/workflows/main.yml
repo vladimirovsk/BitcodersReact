@@ -41,7 +41,7 @@ jobs:
         uses: appleboy/ssh-action@master
         with:
           host: 65.108.199.29
-          username: svladimirov
+          username: s.vladimirov@MacBookVSK.local
           key: ${{ secrets.SERVER_SECRET}}
           port: 22
           script: |
