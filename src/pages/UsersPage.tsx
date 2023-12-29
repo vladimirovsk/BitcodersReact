@@ -1,9 +1,9 @@
 import React from 'react';
 
-export function HomePage() {
+export function UsersPage() {
 	return (
 		<div className='flex pl-28 pt-4'>
-			Home pages
+			Users pages
 		</div>
 	)
 }

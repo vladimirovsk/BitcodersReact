@@ -2,16 +2,20 @@ import React from 'react';
 import {Route, Routes} from 'react-router-dom';
 import {HomePage} from './pages/HomePage';
 import {FavoritesPage} from './pages/FavoritesPage';
-import {Navigation} from './components/Navigation';
+import Sidebar from './components/Sidebar/Sidebar';
+import Header from './components/Header/Header';
+import {UsersPage} from './pages/UsersPage';
 
 
-function App() {
+function App(): JSX.Element {
   return (
       <>
-          <Navigation />
+          <Header />
+          <Sidebar />
           <Routes>
               <Route path='/' element={<HomePage/>}/>
               <Route path='/favorites' element={<FavoritesPage/>}/>
+              <Route path='/users' element={<UsersPage/>}/>
           </Routes>
        </>
   );
