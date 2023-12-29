@@ -4,7 +4,7 @@ pipeline {
         stage('Build') {
             steps {
                 echo 'Copy configuration files'
-                sh 'cp /opt/project/BitCodersReact/.env /var/lib/jenkins/workspace/BitCodersReact/.env'
+                sh 'cp /opt/project/BitcodersReact/.env /var/lib/jenkins/workspace/BitcodersReact/.env'
                 echo 'Building..'
                 catchError {
                     script {
