@@ -20,7 +20,7 @@ jobs:
       - name: Publish Regisry
         uses: minddocdev/docker-publish-action@master
         with:
-          name: vladimirovsk/bitcoders-react:master
+          name: vladimirovsk/bitcoders-react
           username: ${{ secrets.DOCKER_USERNAME }}
           password: ${{ secrets.DOCKER_PASSWORD }}
 
