@@ -49,6 +49,6 @@ jobs:
             cd project/BitCodersReact
             git checkout dev
             git pull
-            docker-compose up -d
+            docker-compose up -d --build
               
               
