@@ -9,12 +9,11 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@master
-      - name: Publish directory
-        uses: elgohr/Publish-Docker-Github-Action@master
-        with:
-          registry: docker.pkg.github.com
-          name: docker.pkg.github.com/vladimirovsk/BitcodersReact/BitcodersReact
-          username: ${{ secrets.DOCKER_USERNAME }}
-          password: ${{ secrets.DOCKER_PASSWORD }}
-          tags: "master"
+      - name: checkout
+        uses: actions/checkout@v3
+      - name: build
+        run: docker build . -t vladimirovsk/bitcoders-react:master
+      - name: publish
+        run: | 
+          docker login -u vladimirovsk -p {{ secrets.DOCKER_PASSWORD }}
+          docker push vladimirovsk/bitcoders-react:master
