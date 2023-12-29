@@ -42,7 +42,7 @@ jobs:
         with:
           host: 65.108.199.29
           username: s.vladimirov@MacBookVSK.local
-          key: ${{ secrets.SERVER_SECRET}}
+          key: ${{ secrets.SERVER_SECRET }}
           port: 22
           script: |
             cd project/BitCodersReact
