@@ -9,10 +9,10 @@ function App() {
   return (
       <>
           <Navigation />
-      <Routes>
-          <Route path = '/' element = {<HomePage />} />
-          <Route path = '/favorites' element = {<FavoritesPage />} />
-      </Routes>
+          <Routes>
+              <Route path='/' element={<HomePage/>}/>
+              <Route path='/favorites' element={<FavoritesPage/>}/>
+          </Routes>
        </>
   );
 }
