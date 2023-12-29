@@ -15,5 +15,5 @@ jobs:
         run: docker build . -t vladimirovsk/bitcoders-react:master
       - name: publish
         run: | 
-          docker login -u vladimirovsk -p {{ secrets.DOCKER_PASSWORD }}
+          docker login -u vladimirovsk -p ${{ secrets.DOCKER_PASSWORD }}
           docker push vladimirovsk/bitcoders-react:master
