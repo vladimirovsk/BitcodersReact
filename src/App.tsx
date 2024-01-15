@@ -5,6 +5,9 @@ import {FavoritesPage} from './pages/FavoritesPage';
 import Sidebar from './components/Sidebar/Sidebar';
 import Header from './components/Header/Header';
 import {UsersPage} from './pages/UsersPage';
+import {SetupPage} from './pages/SetupPage';
+import {ProjectsPage} from './pages/ProjectsPage';
+import {LoginPage} from './pages/LoginPage';
 
 function App(): JSX.Element {
   return (
@@ -15,6 +18,9 @@ function App(): JSX.Element {
               <Route path='/' element={<HomePage/>}/>
               <Route path='/favorites' element={<FavoritesPage/>}/>
               <Route path='/users' element={<UsersPage/>}/>
+              <Route path='/projects' element={<ProjectsPage/>}/>
+              <Route path='/setup' element={<SetupPage/>}/>
+              <Route path='/login' element={<LoginPage/>}/>
           </Routes>
        </>
   );

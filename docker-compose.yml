@@ -2,7 +2,10 @@ version: '3'
 
 services:
   bitcoders-react:
-    image: vladimirovsk/bitcoders-react:master
+    build:
+      context: .
+      dockerfile: Dockerfile
+#    image: vladimirovsk/bitcoders-react:master
     container_name: bitcoders-react
     restart: always
     ports:
