@@ -7,7 +7,7 @@ import './style.scss';
 import {Box, Button, TextField, Typography} from '@mui/material';
 
 
-export function LoginPage() {
+export function RegisterPage() {
 	const {login} = useActions()
 	const {isAuth} = useAppSelector(state => state.auth)
 	const username: IReturnInput = useInput('')
@@ -53,22 +53,25 @@ export function LoginPage() {
 				>
 					<>
 						<Typography variant="h3" marginBottom={3} fontFamily='Poppins' textAlign='center'>
-							Login
+							Register
 						</Typography>
-
+						<TextField id='username' {...username} margin='normal' fullWidth={true} label='username'
+						           variant='outlined' placeholder='Input username' type='email'></TextField>
 						<TextField id='email' {...username} margin='normal' fullWidth={true} label='Email'
 						           variant='outlined' placeholder='Input email' type='email'></TextField>
 						<TextField id='password' {...password} margin='normal' fullWidth={true} label='Password'
 						           variant='outlined' placeholder='Input password' type='password'></TextField>
+						<TextField id='password' {...password} margin='normal' fullWidth={true} label='Reenter the password'
+						           variant='outlined' placeholder='Reenter the password' type='password'></TextField>
 
 						<Button className={'mt=5'}
 						        sx={{fontFamily: 'Poppins', width: '60%', margin: '0 auto', marginTop: 3}}
 						        variant="contained" type='submit'>
-							Login
+							Register
 						</Button>
 
 						<Typography variant="body2" paddingTop={3} sx={{fontFamily: 'Poppins'}}>
-							You don't have an account?<span className="incitingText">Registration</span>
+							You have an account?<span className="incitingText">Login</span>
 						</Typography>
 					</>
 				</Box>
