@@ -5,6 +5,7 @@ import {useLoginQuery} from '../store/rest/rest.api';
 import {useActions} from '../hooks/actions';
 import './style.scss';
 import {Box, Button, TextField, Typography} from '@mui/material';
+import {useDebounce} from '../hooks/debounce';
 
 
 export function LoginPage() {
@@ -18,7 +19,6 @@ export function LoginPage() {
 	const SubmitHandler = async (e: any) => {
 		e.preventDefault()
 		try {
-			console.log({data, isAuth, email: username.value, password: password.value})
 			if (data) {
 				login({
 						email: username.value,
@@ -35,6 +35,7 @@ export function LoginPage() {
 	}
 
 	return (
+		!isAuth ? (
 		<div className='root flex'>
 			<form
 				className='container mx-auto max-w-[500px] pt=8'
@@ -74,5 +75,6 @@ export function LoginPage() {
 				</Box>
 			</form>
 		</div>
+		): null
 	)
 }

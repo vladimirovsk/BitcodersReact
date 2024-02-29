@@ -35,6 +35,7 @@ export function RegisterPage() {
 	}
 
 	return (
+		!isAuth ? (
 		<div className='root flex'>
 			<form
 				className='container mx-auto max-w-[500px] pt=8'
@@ -61,7 +62,8 @@ export function RegisterPage() {
 						           variant='outlined' placeholder='Input email' type='email'></TextField>
 						<TextField id='password' {...password} margin='normal' fullWidth={true} label='Password'
 						           variant='outlined' placeholder='Input password' type='password'></TextField>
-						<TextField id='password' {...password} margin='normal' fullWidth={true} label='Reenter the password'
+						<TextField id='password' {...password} margin='normal' fullWidth={true}
+						           label='Reenter the password'
 						           variant='outlined' placeholder='Reenter the password' type='password'></TextField>
 
 						<Button className={'mt=5'}
@@ -77,5 +79,6 @@ export function RegisterPage() {
 				</Box>
 			</form>
 		</div>
+		): null
 	)
 }
