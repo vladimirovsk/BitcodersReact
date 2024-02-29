@@ -4,7 +4,7 @@ import {AuthData, AuthResponse} from './auth.interface';
 export const restApi = createApi({
 	reducerPath: 'api/v1',
 	baseQuery: fetchBaseQuery({
-		baseUrl: 'http://localhost:9087/api/v1',
+		baseUrl: 'http://api-rest.bitcoders.net/api/v1',
 	}),
 	endpoints: build => ({
 		login:  build.query<AuthResponse, AuthData>({
