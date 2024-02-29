@@ -1,32 +1,38 @@
 import React from 'react';
-import {Link} from 'react-router-dom';
+import {Link, useNavigate} from 'react-router-dom';
 import {useAppSelector} from '../../hooks/redux';
 import {authSlice} from '../../store/rest/rest.slice';
 import {useDispatch} from 'react-redux';
+import {Button} from '@mui/material';
 
 
 const Header = () => {
+	const navigate = useNavigate();
 	const {isAuth} = useAppSelector(state => state.auth)
 	const leftBlock = (<div className="flex"><a href='/'><h2>Bitcoders</h2></a></div>)
 	const dispatch = useDispatch()
 
 
 
-	const LogoutHandler = (event: React.MouseEvent<HTMLAnchorElement>) => {
-		event.preventDefault();
+	const handlerLogout = () => {
+		// event.preventDefault();
 		dispatch(authSlice.actions.logout())
 	}
 
+	const handlerLogin = () => {
+		navigate('one', { replace: false });
+	};
+
 	return (
-		<div className='bg-gray-100 flex justify-between p-4 border-2 border-gray-200'>
+		<div className='flex justify-between p-4 border-2 border-gray-200'>
 			{leftBlock}
 			<span></span>
 			<span className='font-bold'>
-				{!isAuth && <Link to='/login' className='mr-2'>Login</Link>}
-				{isAuth && <a href ='/' onClick={LogoutHandler}>Logout</a>}
-			</span>
-		</div>
-	)
+				{!isAuth && <Button variant="outlined" className={'button-login'} onClick={handlerLogin}>Login</Button>}
+				{isAuth &&  <Button variant="outlined"  className={'button-logout'} onClick={handlerLogout}>Logout</Button>}
+		</span>
+</div>
+)
 }
 
 export default Header;
