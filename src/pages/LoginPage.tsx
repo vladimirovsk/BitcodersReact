@@ -1,34 +1,31 @@
 import React, {Fragment} from 'react';
 import {IReturnInput, useInput} from '../hooks/input';
 import {useAppSelector} from '../hooks/redux';
-import {useLoginQuery} from '../store/rest/rest.api';
-import {useActions} from '../hooks/actions';
 import './style.scss';
 import {Box, Button, TextField, Typography} from '@mui/material';
-import {useDebounce} from '../hooks/debounce';
+import {restActions} from '../store/rest/rest.slice';
+import {useDispatch} from 'react-redux';
+import axios from 'axios';
+import process from 'process';
 
 
 export function LoginPage() {
-	const {login} = useActions()
+	const dispatch = useDispatch()
 	const {isAuth} = useAppSelector(state => state.auth)
 	const username: IReturnInput = useInput('')
 	const password: IReturnInput = useInput('')
 
-	const {data} = useLoginQuery({email: username.value, password: password.value})
 
 	const SubmitHandler = async (e: any) => {
 		e.preventDefault()
 		try {
-			if (data) {
-				login({
-						email: username.value,
-						access_token: data.access_token,
-					}
-				)
+			const { data }  = await axios.post(`${process.env.REACT_APP_API_URL}/auth/login`, {
+				email: username.value,
+				password: password.value
+			})
 
-			} else {
-				console.log('Error ')
-			}
+			dispatch(restActions.login({ access_token: data?.access_token, email: username.value}))
+
 		} catch (error) {
 			console.error('Error authentication', error as Error)
 		}
