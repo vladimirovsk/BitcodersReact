@@ -1,30 +1,33 @@
-import React, {Fragment} from 'react';
+import React, {useEffect} from 'react';
 import {IReturnInput, useInput} from '../hooks/input';
 import {useAppSelector} from '../hooks/redux';
 import './style.scss';
-import {Box, Button, TextField, Typography} from '@mui/material';
-import {restActions} from '../store/rest/rest.slice';
+import {Alert, Box, Button, TextField, Typography} from '@mui/material';
 import {useDispatch} from 'react-redux';
-import axios from 'axios';
-import process from 'process';
-
+import {AppDispatch} from '../store';
+import {authSlice, login} from '../store/rest/rest.slice';
+import {useNavigate} from 'react-router-dom';
 
 export function LoginPage() {
-	const dispatch = useDispatch()
-	const {isAuth} = useAppSelector(state => state.auth)
+	const dispatch = useDispatch<AppDispatch>()
+	const navigate = useNavigate()
+	const {isAuth, loginErrorMessage} = useAppSelector(state => state.auth)
 	const username: IReturnInput = useInput('')
 	const password: IReturnInput = useInput('')
 
+	useEffect(()=>{
+		if (isAuth) {
+			navigate('/')
+		}
+	}, [isAuth])
 
 	const SubmitHandler = async (e: any) => {
 		e.preventDefault()
 		try {
-			const { data }  = await axios.post(`${process.env.REACT_APP_API_URL}/auth/login`, {
-				email: username.value,
-				password: password.value
-			})
-
-			dispatch(restActions.login({ access_token: data?.access_token, email: username.value}))
+			if (username.value && password.value) {
+				dispatch(authSlice.actions.clearLoginError())
+				dispatch(login({email: username.value, password: password.value}))
+			}
 
 		} catch (error) {
 			console.error('Error authentication', error as Error)
@@ -53,7 +56,7 @@ export function LoginPage() {
 						<Typography variant="h3" marginBottom={3} fontFamily='Poppins' textAlign='center'>
 							Login
 						</Typography>
-
+						{loginErrorMessage && <Alert severity="error">{loginErrorMessage}</Alert>}
 						<TextField id='email' {...username} margin='normal' fullWidth={true} label='Email'
 						           variant='outlined' placeholder='Input email' type='email'></TextField>
 						<TextField id='password' {...password} margin='normal' fullWidth={true} label='Password'

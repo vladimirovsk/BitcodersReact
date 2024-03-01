@@ -1,34 +1,19 @@
 import React, {Fragment} from 'react';
 import {IReturnInput, useInput} from '../hooks/input';
 import {useAppSelector} from '../hooks/redux';
-import {useLoginQuery} from '../store/rest/rest.api';
-import {useActions} from '../hooks/actions';
 import './style.scss';
 import {Box, Button, TextField, Typography} from '@mui/material';
 
-
 export function RegisterPage() {
-	const {login} = useActions()
 	const {isAuth} = useAppSelector(state => state.auth)
 	const username: IReturnInput = useInput('')
 	const password: IReturnInput = useInput('')
 
-	const {data} = useLoginQuery({email: username.value, password: password.value})
 
 	const SubmitHandler = async (e: any) => {
 		e.preventDefault()
 		try {
-			console.log({data, isAuth, email: username.value, password: password.value})
-			if (data) {
-				login({
-						email: username.value,
-						access_token: data.access_token,
-					}
-				)
 
-			} else {
-				console.log('Error ')
-			}
 		} catch (error) {
 			console.error('Error authentication', error as Error)
 		}

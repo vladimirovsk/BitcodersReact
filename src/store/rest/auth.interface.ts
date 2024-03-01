@@ -10,7 +10,8 @@ export interface AuthResponse {
 export interface IAuthState {
 	access_token:string;
 	email: string;
-	isAuth:boolean
+	isAuth:boolean;
+	loginErrorMessage?: string  | undefined;
 }
 
 export interface IAuthPayload {
