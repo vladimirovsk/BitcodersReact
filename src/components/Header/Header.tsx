@@ -1,7 +1,7 @@
 import React from 'react';
 import {Link, useNavigate} from 'react-router-dom';
 import {useAppSelector} from '../../hooks/redux';
-import {authSlice} from '../../store/rest/rest.slice';
+import {authSlice} from '../../store/rest/auth.slice';
 import {useDispatch} from 'react-redux';
 import {Button} from '@mui/material';
 
