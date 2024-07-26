@@ -10,7 +10,8 @@ import {ProjectsPage} from './pages/ProjectsPage';
 import {LoginPage} from './pages/LoginPage';
 import {useAppSelector} from './hooks/redux';
 import {RegisterPage} from './pages/RegisterPage';
-
+import {AboutPage} from './pages/AboutPage';
+import {pages} from './pages';
 
 function App(): JSX.Element {
     // const ProtectedRoute = ({ component, ...rest })=>{
@@ -20,18 +21,22 @@ function App(): JSX.Element {
     const {isAuth} = useAppSelector((state) => state.auth);
   return (
       <>
+          {/*<ThemeProvider theme={theme}>*/}
           <Header />
           <Sidebar />
           <Routes>
-              <Route path='/login' element={<LoginPage/>}/>
-              <Route path='/register' element={<RegisterPage/>}/>
-              <Route path='/' element={<HomePage/>}/>
-              {isAuth && <Route key="/favorites" path="/favorites" element={<FavoritesPage/>}/>}
-              {isAuth && <Route key="/users" path="/users" element={<UsersPage/>}/>}
-              {isAuth && <Route key="/projects" path="/projects" element={<ProjectsPage/>}/>}
-              {isAuth && <Route key="/setup" path="/setup" element={<SetupPage/>}/>}
+              <Route key={pages.login} path={pages.login} element={<LoginPage/>}/>
+              <Route key={pages.register} path={pages.register} element={<RegisterPage/>}/>
+              <Route key={pages.home} path={pages.home} element={<HomePage/>}/>
+              <Route key={pages.projects} path={pages.projects} element={<ProjectsPage/>}/>
+              <Route key={pages.about} path={pages.about} element={<AboutPage/>}/>
+              {isAuth && <Route key={pages.favorites} path={pages.favorites} element={<FavoritesPage/>}/>}
+              {isAuth && <Route key={pages.users} path={pages.users} element={<UsersPage/>}/>}
+              {/*{isAuth && <Route key={pages.projects} path={pages.projects} element={<ProjectsPage/>}/>}*/}
+              {isAuth && <Route key={pages.setup} path={pages.setup} element={<SetupPage/>}/>}
               {!isAuth && <Route path='*' element={<Navigate to='/login'/>}/>}
           </Routes>
+          {/*</ThemeProvider>*/}
        </>
   );
 }
