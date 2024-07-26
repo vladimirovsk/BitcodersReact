@@ -41,7 +41,7 @@ const Header = () => {
 			default:
 				break;
 		}
-	}, [tabIndex]);
+	}, [tabIndex, navigate]);
 
 	return (
 		<div className='flex justify-between p-4 border-2 border-gray-200'>
@@ -54,7 +54,7 @@ const Header = () => {
 					scrollButtons="auto"
 					// indicatorColor="secondary"
 					// textColor="secondary"
-					indicatorColor="secondary"
+					// indicatorColor="secondary"
 					// aria-label="secondary tabs example"
 				>
                     <Tab value={0} label="Home"/>
