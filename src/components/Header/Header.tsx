@@ -5,12 +5,19 @@ import {authSlice} from '../../store/rest/auth.slice';
 import {useDispatch} from 'react-redux';
 import {Button, Tab, Tabs} from '@mui/material';
 import {pages} from '../../pages';
+import itIcon from '../../../public/logoit.png'
 
 
 const Header = () => {
 	const navigate = useNavigate();
 	const {isAuth} = useAppSelector(state => state.auth)
-	const leftBlock = (<div className="flex"><a href='/'><h2>IT CODER</h2></a></div>)
+	const leftBlock = (
+		<div className="flex pl-10">
+			<a href='/'>
+				IT CODER
+				{/*<img src="/logoit.png" alt="Logo" style={{ width: '50px', height: '50px' }}/>*/}
+			</a>
+		</div>)
 	const dispatch = useDispatch()
 	const [tabIndex, setTabIndex] = React.useState(0);
 
@@ -41,12 +48,12 @@ const Header = () => {
 			default:
 				break;
 		}
-	}, [tabIndex, navigate]);
+	}, [tabIndex]);
 
 	return (
 		<div className='flex justify-between p-4 border-2 border-gray-200'>
 			{leftBlock}
-			<span></span>
+
 				<Tabs
 					// className={classes.tabContainer}
 					value={tabIndex}

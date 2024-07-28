@@ -19,7 +19,7 @@ export function LoginPage() {
 		if (isAuth) {
 			navigate('/')
 		}
-	}, [isAuth, navigate])
+	}, [isAuth])
 
 	const SubmitHandler = async (e: any) => {
 		e.preventDefault()

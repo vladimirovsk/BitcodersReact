@@ -18,7 +18,7 @@ const Sidebar = () => {
 	const setupClassNameForButton = (buttonName:string) => {
 		return `${
 			selectedButton === buttonName
-				? 'bg-purple-800 text-white'
+				? 'bg-blue-500 text-white'
 				: 'bg-gray-100 hover:bg-gray-200'
 		} cursor-pointer my-4 p-3 rounded-lg inline-block`
 	}
