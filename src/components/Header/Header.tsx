@@ -1,7 +1,7 @@
 import React, {useEffect} from 'react';
 import {useNavigate} from 'react-router-dom';
 import {useAppSelector} from '../../hooks/redux';
-import {authSlice} from '../../store/rest/auth.slice';
+import {authSlice} from '../../store/rest/auth/auth.slice';
 import {useDispatch} from 'react-redux';
 import {Button, Tab, Tabs} from '@mui/material';
 import {pages} from '../../pages';

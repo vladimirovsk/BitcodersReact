@@ -1,7 +1,7 @@
 import {useDispatch} from 'react-redux';
 import {bindActionCreators} from '@reduxjs/toolkit';
-import {authActions} from '../store/rest/auth.slice';
-import {userActions} from '../store/rest/user.slice';
+import {authActions} from '../store/rest/auth/auth.slice';
+import {userActions} from '../store/rest/user/user.slice';
 
 const  actions = {
 	...authActions,
