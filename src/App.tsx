@@ -1,6 +1,6 @@
 import React from 'react';
 import {Navigate, Route, Routes} from 'react-router-dom';
-import {HomePage} from './pages/HomePage';
+import {HomePage} from './pages/HomePage/HomePage';
 import {FavoritesPage} from './pages/FavoritesPage';
 import Sidebar from './components/Sidebar/Sidebar';
 import Header from './components/Header/Header';
@@ -12,6 +12,11 @@ import {useAppSelector} from './hooks/redux';
 import {RegisterPage} from './pages/RegisterPage';
 import {AboutPage} from './pages/AboutPage';
 import {pages} from './pages';
+import "animate.css/animate.min.css";
+import './styles.css'
+import Fotter from './components/Fotter/Fotter';
+
+
 
 function App(): JSX.Element {
     // const ProtectedRoute = ({ component, ...rest })=>{
@@ -36,6 +41,7 @@ function App(): JSX.Element {
               {isAuth && <Route key={pages.setup} path={pages.setup} element={<SetupPage/>}/>}
               {!isAuth && <Route path='*' element={<Navigate to='/login'/>}/>}
           </Routes>
+          <Fotter/>
           {/*</ThemeProvider>*/}
        </>
   );

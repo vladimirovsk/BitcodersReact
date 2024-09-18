@@ -1,0 +1,9 @@
+.root {
+    color: white;
+    flexGrow: 1;
+}
+
+:root {
+    --primary-color: #ffffff;
+    --color-secondary: #0d47a1;
+}
