@@ -48,6 +48,7 @@ jobs:
             cd project/BitCodersReact
             git checkout dev
             git pull
+            docker stop itcoder-react
             docker-compose up -d --build
               
               
