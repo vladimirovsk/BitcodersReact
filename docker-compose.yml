@@ -5,7 +5,7 @@ services:
     build:
       context: .
       dockerfile: Dockerfile
-#    image: vladimirovsk/bitcoders-react:master
+#    image: vladimirovsk/itcoder-react:master
     container_name: itcoder-react
     restart: always
     ports:
