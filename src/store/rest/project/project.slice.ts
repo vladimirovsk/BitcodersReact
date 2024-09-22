@@ -10,6 +10,7 @@ const initialState: IProjectState = {
 
 export const projectSlice = createSlice({
 	name: 'project',
+	initialState,
 	reducers: {
 		fetching(state) {
 			state.loading = true
@@ -18,12 +19,11 @@ export const projectSlice = createSlice({
 			state.loading = false
 			state.projects = action.payload
 		},
-		fetchError(state, action: PayloadAction<Error>) {
-			state.loading = false,
-			state.error = action.payload.message
-		}
-	},
-	initialState,
+		// fetchError(state, action: PayloadAction<Error>) {
+		// 	state.loading = false,
+		// 	state.error = action.payload.message
+		// }
+	}
 })
 
 export const projectActions = projectSlice.actions
