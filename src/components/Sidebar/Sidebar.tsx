@@ -22,7 +22,8 @@ const Sidebar = () => {
 				: 'bg-gray-100 hover:bg-gray-200'
 		} cursor-pointer my-4 p-3 rounded-lg inline-block`
 	}
-		if (isAuth) {
+
+		if (0>1) {//isAuth) {
 			return (
 				<div className='flex'>
 					<div className='fixed w-20 h-screen p-4 bg-white border-r-[1px] flex flex-col justify-between'>

@@ -137,3 +137,11 @@ export interface ILicense {
 	url?: string
 	node_id: string
 }
+
+
+export interface ServerResponse<T> {
+	count: number,
+	next: number,
+	previous: number,
+	result: T[]
+}

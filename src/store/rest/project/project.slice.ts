@@ -5,7 +5,6 @@ const initialState: IProjectState = {
 	loading: false,
 	error: '',
 	projects: []
-
 }
 
 export const projectSlice = createSlice({
@@ -19,10 +18,10 @@ export const projectSlice = createSlice({
 			state.loading = false
 			state.projects = action.payload
 		},
-		// fetchError(state, action: PayloadAction<Error>) {
-		// 	state.loading = false,
-		// 	state.error = action.payload.message
-		// }
+		fetchError(state, action: PayloadAction<Error>) {
+			state.loading = false
+			state.error = action.payload.message
+		}
 	}
 })
 
