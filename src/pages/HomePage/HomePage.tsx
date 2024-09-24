@@ -33,32 +33,11 @@ import imgReactJs from './img/react.png';
 
 import './styles.css'
 import 'animate.css/animate.compat.css'
-
-interface ICards {
-	id: string,
-	title: string,
-	text: string,
-	img: string
-}
-
-interface IFrameworks {
-	name: string
-}
-
-interface ISkills {
-	id: string,
-	title: string,
-	subheader: string,
-	img: string,
-	expanded: boolean,
-	hidden: boolean,
-	disabled: boolean,
-	frameworks: IFrameworks[]
-}
+import {ICards, ISkills} from './homePage.interface';
 
 export function HomePage() {
-	const {isAuth} = useAppSelector((state) => state.auth);
-	const sliderSpace = isAuth ? 'pl-28' : 'pl-8'
+	//const {isAuth} = useAppSelector((state) => state.auth);
+	const sliderSpace = 'pl:8'//isAuth ? 'pl-28' : 'pl-8'
 	const imageUrl = `url(${LaptopITService})`;
 
 	const [expanded0, setExpanded0] = React.useState(false);

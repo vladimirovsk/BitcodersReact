@@ -5,7 +5,7 @@ import './style.scss';
 import {Alert, Box, Button, TextField, Typography} from '@mui/material';
 import {useDispatch} from 'react-redux';
 import {AppDispatch} from '../store';
-import {authSlice, login} from '../store/rest/auth.slice';
+import {authSlice, login} from '../store/rest/auth/auth.slice';
 import {useNavigate} from 'react-router-dom';
 
 export function LoginPage() {
